@@ -11,13 +11,13 @@ reduce this burden of writing the same code when starting up a web project
 
 #### Installation
 ```bash
-pip install webgensis
+pip install webgenesis
 ```
 
 
 #### Usage
 ```bash
-webgensis --help
+webgenesis --help
 
 ```
 
@@ -33,18 +33,18 @@ webgensis --help
 	- tornado
 
 ```bash
-webgensis create flask
+webgenesis create flask
 
 ```
 
 ```bash
-webgensis create streamlit
+webgenesis create streamlit
 
 ```
 
 #### Create A Project using Custom/Specified Project
 ```bash
-webgensis create flask -f myflaskapp
+webgenesis create flask -f myflaskapp
 ```
 
 

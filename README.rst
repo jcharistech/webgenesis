@@ -17,14 +17,14 @@ Installation
 
 .. code:: bash
 
-   pip install webgensis
+   pip install webgenesis
 
 Usage
 -----
 
 .. code:: bash
 
-   webgensis --help
+   webgenesis --help
 
 Create A Project for a web framework
 ------------------------------------
@@ -41,18 +41,18 @@ Create A Project for a web framework
 
 .. code:: bash
 
-   webgensis create flask
+   webgenesis create flask
 
 .. code:: bash
 
-   webgensis create streamlit
+   webgenesis create streamlit
 
 Create A Project using Custom/Specified Project
 -----------------------------------------------
 
 .. code:: bash
 
-   webgensis create flask -f myflaskapp
+   webgenesis create flask -f myflaskapp
 
 About
 -----
