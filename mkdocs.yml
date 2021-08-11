@@ -1,0 +1,7 @@
+site_name: WebGenesis
+site_url: https://github.com/jcharistech/webgenesis
+nav:
+    - Home: index.md
+    - About: about.md
+
+theme: readthedocs
