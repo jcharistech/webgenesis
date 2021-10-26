@@ -126,6 +126,33 @@ if __name__ == "__main__":
 
 """
 
+FASTAPI_TEMPLATE = """
+from fastapi import FastAPI
+from typing import Optional
+import uvicorn
+
+# Init app
+app = FastAPI()
+
+
+@app.get("/")
+def read_root():
+    return {"text": "Hello FastAPI"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Optional[str] = None):
+    return {"item_id": item_id, "q": q}
+
+
+
+if __name__ == '__main__':
+	uvicorn.run(app,host='127.0.0.1',port=8000)
+
+
+"""
+
+
 
 
 # def create_project(frameworktype):
@@ -159,6 +186,9 @@ FILE_PATH_KOAJS = 'hello-koa/app.js'
 DIR_PATH_TORNADO = 'hello-tornado'
 FILE_PATH_TORNADO = 'hello-tornado/app.py'
 
+DIR_PATH_FASTAPI = 'hello-fastapi/template'
+FILE_PATH_FASTAPI = 'hello-fastapi/app.py'
+
 
 
 def create_project(TEMPLATE_TYPE,DIR_PATH,FILE_PATH):
@@ -188,12 +218,27 @@ def create_project_per_folder(TEMPLATE_TYPE,folder_name,language='py'):
 		f.write(TEMPLATE_TYPE)
 	print("Finished Creating Project")  
 
+def create_project_per_folder_st(TEMPLATE_TYPE,folder_name,language='py'):
+	"""Create A Project Per the Template,Path and File using the 
+		specified directory/folder
+	"""
+	try:
+		DIR_PATH_ALL = '{}/data'.format(folder_name)
+		os.makedirs(DIR_PATH_ALL)
+	except:
+		click.secho("A Similar Project Already Exist", fg="red")
+	FILE_PATH_ALL = "{}/app.{}".format(folder_name,language)
+	print(FILE_PATH_ALL)
+	with open(FILE_PATH_ALL,"w+") as f:
+		f.write(TEMPLATE_TYPE)
+	print("Finished Creating Project")  
+
 
 
 @click.group(
     cls=HelpColorsGroup, help_headers_color="yellow", help_options_color="cyan"
 )
-@click.version_option("0.0.1", prog_name="webgenesis")
+@click.version_option("0.0.2", prog_name="webgenesis")
 def main():
     """Webgenesis : A simple CLI for creating basic starter templates for web frameworks """
     pass
@@ -205,7 +250,7 @@ def main():
 def create(frameworktype,folder):
 	""" Create A Basic Startup Project for the specified web framework
 
-	frameworktype:: flask,express,streamlit,bottle,koa,tornado
+	frameworktype:: flask,express,streamlit,bottle,koa,tornado,fastapi,streamlit-multipage
 
 	---Usage---
 
@@ -235,13 +280,16 @@ def create(frameworktype,folder):
 
 		elif frameworktype == 'tornado':
 			create_project(TORNADO_TEMPLATE,DIR_PATH_TORNADO,FILE_PATH_TORNADO)
+
+		elif frameworktype == 'fastapi':
+			create_project(FASTAPI_TEMPLATE,DIR_PATH_FASTAPI,FILE_PATH_FASTAPI)
 	else:
 		if frameworktype == 'flask':
 			create_project_per_folder(FLASK_TEMPLATE,folder)
 		elif frameworktype == 'streamlit':
-			create_project_per_folder(STREAMLIT_TEMPLATE,folder)
+			create_project_per_folder_st(STREAMLIT_TEMPLATE,folder)
 		elif frameworktype == 'streamlit-multipage':
-			create_project_per_folder(STREAMLIT_MULTIPAGE_TEMPLATE,folder)
+			create_project_per_folder_st(STREAMLIT_MULTIPAGE_TEMPLATE,folder)
 		elif frameworktype == 'express':
 			create_project_per_folder(EXPRESS_TEMPLATE,folder,"js")
 		elif frameworktype == 'bottle':
@@ -250,28 +298,18 @@ def create(frameworktype,folder):
 			create_project_per_folder(KOAJS_TEMPLATE,folder,"js")
 		elif frameworktype == 'tornado':
 			create_project(TORNADO_TEMPLATE,folder)
+		elif frameworktype == 'fastapi':
+			create_project_per_folder(FASTAPI_TEMPLATE,folder)
 
 
 
 
-
-@main.command()
-@click.argument("frameworktype")
-@click.option('--folder','-f',help='specify folder name')
-def startup(frameworktype,folder):
-	""" Create A Template and Start Up App
-	
-	webgenesis start flask
-
-	"""
-	click.echo("Creating a :{} project".format(frameworktype))
-	click.echo("Folder:{}".format(folder))
 
 
 @main.command()
 def info():
 	"""Info About CLI """
-	version_info = '0.0.1'
+	version_info = '0.0.2'
 	click.secho("webgenesis v.{}".format(version_info),fg='blue')
 	click.echo("Jesus Saves @JCharisTech")
 

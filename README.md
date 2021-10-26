@@ -31,6 +31,7 @@ webgenesis --help
 	- koajs
 	- bottle
 	- tornado
+	- fastapi
 
 ```bash
 webgenesis create flask

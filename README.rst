@@ -38,6 +38,8 @@ Create A Project for a web framework
    -  koajs
    -  bottle
    -  tornado
+   -  fastapi
+   
 
 .. code:: bash
 
