@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "webgenesis"
-version = "0.0.1"
+version = "0.0.2"
 description = "create basic hello-world apps for the various web frameworks as boiler plates"
 authors = ["Jesse E.Agbe(JCharis) <jcharistech@gmail.com>"]
 license = "MIT"

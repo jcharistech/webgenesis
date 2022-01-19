@@ -10,7 +10,7 @@ from click_help_colors import HelpColorsGroup, HelpColorsCommand
 
 
 FLASK_TEMPLATE = """
-from flask import Flask,requests 
+from flask import Flask,request,render_template
 
 app = Flask(__name__)
 
@@ -165,7 +165,7 @@ if __name__ == '__main__':
 
 
 # DEFAULTS
-DIR_PATH_FLASK = 'hello-flask/template'
+DIR_PATH_FLASK = 'hello-flask/templates'
 FILE_PATH_FLASK = 'hello-flask/app.py'
 
 DIR_PATH_STREAMLIT = 'hello-streamlit'
@@ -174,19 +174,19 @@ FILE_PATH_STREAMLIT = 'hello-streamlit/app.py'
 DIR_PATH_STREAMLIT_MULTIPAGE = 'hello-streamlit-multi'
 FILE_PATH_STREAMLIT_MULTIPAGE = 'hello-streamlit-multi/app.py'
 
-DIR_PATH_BOTTLE = 'hello-bottle/template'
+DIR_PATH_BOTTLE = 'hello-bottle/templates'
 FILE_PATH_BOTTLE = 'hello-bottle/app.py'
 
-DIR_PATH_EXPRESS = 'hello-express/template'
+DIR_PATH_EXPRESS = 'hello-express/views'
 FILE_PATH_EXPRESS = 'hello-express/app.js'
 
-DIR_PATH_KOAJS = 'hello-koa/template'
+DIR_PATH_KOAJS = 'hello-koa/views'
 FILE_PATH_KOAJS = 'hello-koa/app.js'
 
 DIR_PATH_TORNADO = 'hello-tornado'
 FILE_PATH_TORNADO = 'hello-tornado/app.py'
 
-DIR_PATH_FASTAPI = 'hello-fastapi/template'
+DIR_PATH_FASTAPI = 'hello-fastapi/templates'
 FILE_PATH_FASTAPI = 'hello-fastapi/app.py'
 
 
@@ -300,10 +300,6 @@ def create(frameworktype,folder):
 			create_project(TORNADO_TEMPLATE,folder)
 		elif frameworktype == 'fastapi':
 			create_project_per_folder(FASTAPI_TEMPLATE,folder)
-
-
-
-
 
 
 @main.command()
