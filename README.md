@@ -1,10 +1,10 @@
 ### Webgenesis
 A simple command line interface for generating hello-world starter apps for 
-quick setup
+quick setups
 
 
 #### Why Webgenesis?
-When building web apps, it can become common to be starting from the same or similar set of code and basic project structure. Hence webgenesis comes in to
+When building web apps, it can become repetitive to be starting from the same or similar set of code and basic project structure. Hence webgenesis comes in to
 reduce this burden of writing the same code when starting up a web project
 
 
