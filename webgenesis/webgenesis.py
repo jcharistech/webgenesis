@@ -171,7 +171,7 @@ FILE_PATH_FLASK = 'hello-flask/app.py'
 DIR_PATH_STREAMLIT = 'hello-streamlit'
 FILE_PATH_STREAMLIT = 'hello-streamlit/app.py'
 
-DIR_PATH_STREAMLIT_MULTIPAGE = 'hello-streamlit-multi'
+DIR_PATH_STREAMLIT_MULTIPAGE = 'hello-streamlit-multi/pages'
 FILE_PATH_STREAMLIT_MULTIPAGE = 'hello-streamlit-multi/app.py'
 
 DIR_PATH_BOTTLE = 'hello-bottle/templates'
@@ -225,6 +225,7 @@ def create_project_per_folder_st(TEMPLATE_TYPE,folder_name,language='py'):
 	try:
 		DIR_PATH_ALL = '{}/data'.format(folder_name)
 		os.makedirs(DIR_PATH_ALL)
+		
 	except:
 		click.secho("A Similar Project Already Exist", fg="red")
 	FILE_PATH_ALL = "{}/app.{}".format(folder_name,language)
@@ -238,7 +239,7 @@ def create_project_per_folder_st(TEMPLATE_TYPE,folder_name,language='py'):
 @click.group(
     cls=HelpColorsGroup, help_headers_color="yellow", help_options_color="cyan"
 )
-@click.version_option("0.0.2", prog_name="webgenesis")
+@click.version_option("0.0.3", prog_name="webgenesis")
 def main():
     """Webgenesis : A simple CLI for creating basic starter templates for web frameworks """
     pass
