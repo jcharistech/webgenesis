@@ -4,8 +4,8 @@ quick setups
 
 
 #### Why Webgenesis?
-When building web apps, it can become repetitive to be starting from the same or similar set of code and basic project structure. Hence webgenesis comes in to
-reduce this burden of writing the same code when starting up a web project
+When building web apps, it can become repetitive to be starting from the same or similar set of code and basic project structure. This is where webgenesis comes in to
+reduce the burden of writing the same code when starting up a web project
 
 
 
